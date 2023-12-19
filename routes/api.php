@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::post('/ingredients', [ApiController::class, 'createIngredient']);
+
+Route::post('/recipes', [ApiController::class, 'createRecipe']);
+
+Route::get('/recipes', [ApiController::class, 'listRecipes']);
+
+Route::post('/boxes', [ApiController::class, 'createBox']);
+
+Route::get('/ingredients/order', [ApiController::class, 'getIngredientsToOrder']);

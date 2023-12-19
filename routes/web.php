@@ -18,14 +18,3 @@ Route::get('/', function () {
 });
 
 
-Route::post('/ingredients', [ApiController::class, 'createIngredient']);
-
-Route::post('/recipes', [ApiController::class, 'createRecipe']);
-
-Route::get('/recipes', [ApiController::class, 'listRecipes']);
-
-Route::post('/boxes', [ApiController::class, 'createBox']);
-
-Route::get('/ingredients/order', [ApiController::class, 'getIngredientsToOrder']);
-
-Route::get('/ingredients/order', [ApiController::class, 'getIngredientsToOrder']);
