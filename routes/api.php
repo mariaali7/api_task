@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +20,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/order', [ApiController::class, 'getIngredientsToOrder']);
 
 
 Route::post('/ingredients', [ApiController::class, 'createIngredient']);
+Route::get('/ingredients', [ApiController::class, 'indexIngredient']);
 
 Route::post('/recipes', [ApiController::class, 'createRecipe']);
-
 Route::get('/recipes', [ApiController::class, 'listRecipes']);
 
 Route::post('/boxes', [ApiController::class, 'createBox']);
+Route::get('/boxes', [ApiController::class, 'indexBox']);
 
-Route::get('/ingredients/order', [ApiController::class, 'getIngredientsToOrder']);
+
+

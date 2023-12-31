@@ -10,7 +10,8 @@ class CreateBoxesTable extends Migration
     {
         Schema::create('boxes', function (Blueprint $table) {
             $table->id();
-            $table->date('delivery_date');
+            $table->dateTime('delivery_date');
+            $table->int('user_id');
             $table->timestamps();
         });
     }

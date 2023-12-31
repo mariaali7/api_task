@@ -8,20 +8,21 @@ class CreateRecipeIngredientTable extends Migration
 {
     public function up()
     {
-        Schema::create('recipe_ingredient', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('recipe_id');
+        Schema::create('ingredient_recipe', function (Blueprint $table) {
             $table->unsignedBigInteger('ingredient_id');
-            $table->decimal('amount', 8, 2);
-            $table->timestamps();
+            $table->unsignedBigInteger('recipe_id');
+            $table->integer('amount');
+            // Add any additional columns you may need for the pivot table
 
-            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
             $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
+
+            $table->primary(['ingredient_id', 'recipe_id']);
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('recipe_ingredient');
+        Schema::dropIfExists('ingredient_recipe');
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Box extends Model
 {
@@ -10,6 +12,7 @@ class Box extends Model
 
     public function recipes()
     {
-        return $this->belongsToMany(Recipe::class);
+               return $this->belongsToMany(Recipe::class, 'box_recipe');
+
     }
 }
